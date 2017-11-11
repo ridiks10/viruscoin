@@ -40,8 +40,8 @@ uint256 nPoWBase = uint256("0x00000000ffff00000000000000000000000000000000000000
 
 CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 16);
 
-unsigned int nStakeMinAge = 30 * nOneDay; // 30 days as zero time weight
-unsigned int nStakeMaxAge = 90 * nOneDay; // 90 days as full weight
+unsigned int nStakeMinAge = 7 * nOneDay; // 30 days as zero time weight
+unsigned int nStakeMaxAge = 30 * nOneDay; // 90 days as full weight
 unsigned int nStakeTargetSpacing = 10 * 60; // 10-minute stakes spacing
 int64_t nTargetSpacing = 10 * 60;  // Same as the above
 unsigned int nModifierInterval = 6 * nOneHour; // time to elapse before new modifier is computed
@@ -1096,7 +1096,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, unsigned int nBits, int64_t nTim
     int64_t Balance = pwalletMain->GetBalance();
 
     // if (Balance < (10000 * COIN)) {
-        nRewardCoinYear = 1000 * CENT;
+    //    nRewardCoinYear = 1000 * CENT;
     // } else if (Balance >= (10000 * COIN) &&  Balance <= (50000 * COIN)) {
     //     nRewardCoinYear = 5 * CENT;
     // } else if (Balance >= (50000 * COIN) &&  Balance <= (100000 * COIN)) {
@@ -1104,8 +1104,8 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, unsigned int nBits, int64_t nTim
     // } else {
     //     nRewardCoinYear = 0 * CENT;
     // }
-    //
-     int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365;
+
+     int64_t nSubsidy = Balance * 3;
 
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nCoinAge);

@@ -14,6 +14,7 @@ src/build.h
 Makefile
 VirusCoin-qt
 VirusCoin-Qt.app
+VirusCoin-Qt.dmg
 .qmake.stash
 #resources cpp
 qrc_*.cpp
@@ -28,3 +29,4 @@ docker
 Dockerfile
 docker-compose.yml
 /res
+viruscoind
