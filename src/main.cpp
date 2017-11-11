@@ -1090,7 +1090,7 @@ int64_t GetProofOfWorkReward(unsigned int nBits, int64_t nFees, int nHeight)
 }
 
 // miner's coin stake reward based on nBits and coin age spent (coin-days)
-int64_t GetProofOfStakeReward(int64_t nCoinAge, unsigned int nBits, int64_t nTime, bool bCoinYearOnly)
+int64_t GetProofOfStakeReward(int64_t nCoinAge, unsigned int nBits, int64_t nTime, bool bCoinYearOnly, int nHeight)
 {
     static int64_t nRewardCoinYear;
     int64_t Balance = pwalletMain->GetBalance();
@@ -1108,7 +1108,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, unsigned int nBits, int64_t nTim
      int64_t nSubsidy = Balance * 3;
 
     if (fDebug && GetBoolArg("-printcreation"))
-        printf("GetProofOfStakeReward(): create=%s nCoinAge=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
+        printf("GetProofOfStakeReward(): create=%s nHeight=%s nCoinAge=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(),nHeight, nCoinAge);
 
     return nSubsidy; // + nFees;
 }
