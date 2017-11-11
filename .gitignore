@@ -27,4 +27,4 @@ docker
 !src/leveldb/Makefile
 Dockerfile
 docker-compose.yml
-res
+/res
